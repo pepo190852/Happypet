@@ -1,25 +1,13 @@
 <template>
   <div id="app">
-    <img src="./assets/egg.gif">
+    <img src="./assets/logo.gif">
     <HelloWorld/>
-    <ul>
-      <p><img src="./assets/rc_c_stand.gif"><img src="./assets/slam.gif"><img src="./assets/egg.gif"></p>
-          
-      <button v-on:click="feeding(1)"><h2>Raccoon</h2></button>
-      
-      
-          
-      <button v-on:click="feeding(2)"><h2>slime</h2></button>
-      
-      
-          
-      <button v-on:click="feeding(3)"><h2>egg</h2></button>
-      
-      
-    </ul>
-  
-    
-   
+    <p><img src="./assets/rc_c_stand.gif"></p>
+    <p><button v-on:click="feeding(1)">Raccoon</button></p>
+    <p><img src="./assets/slime.gif"></p>
+    <p><button v-on:click="feeding(2)">Slime</button></p>
+    <p><img src="./assets/egg.gif"></p>
+    <p><button v-on:click="feeding(3)">Egg</button></p>
   </div>
 </template>
 
@@ -54,6 +42,7 @@ export default {
   },
   methods: {
     feeding: function(message) {
+      //alert("Feeded"); //ยังไม่ได้ต่อ
       console.log(this.connection);
       var msg = {
         type:"action",
@@ -63,7 +52,7 @@ export default {
         skin_id : 8
     }
       this.connection.send(JSON.stringify(msg));
-      alert("Feeded");
+      alert("Feeded"); //ให้อาหารได้หลังจากต่อไปแล้ว
     }
   },
 }
